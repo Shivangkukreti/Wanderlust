@@ -1,0 +1,35 @@
+<%- include("./include/headfile.ejs") %>
+<body>
+
+
+
+    <%- include("./include/navbar.ejs") %>
+      <%- include("./include/flash.ejs") %>
+   
+   
+
+     <div style="height: 100vh;" class=" mt-4  offset-1">
+         <h1>Log In On WanderLust</h1>
+         
+        <form  method="post" class="needs-validation" novalidate  action="/listings/login"    >
+
+        <label class="form-label  m-2" for="username">Username
+          <input class="form-control" type="text"  name="username" required >
+        </label>
+
+          <label class="form-label m-2" for="password">Password
+            <input class="form-control" type="password"  name="password" required >
+          </label>
+          <button class="offset-5 mb-5" id="butsub" >Submit</button>
+    </form>
+       
+     </div>
+
+
+
+
+
+    <%- include("./include/footer.ejs") %>
+</body>
+<script src="/code.js"></script>
+</html> 

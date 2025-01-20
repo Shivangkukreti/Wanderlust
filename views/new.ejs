@@ -1,0 +1,63 @@
+<%- include("./include/headfile.ejs") %>
+
+
+<body>
+    <%- include("./include/navbar.ejs") %>
+      
+    
+    <form style="margin: 2vh;" novalidate class="needs-validation " enctype="multipart/form-data"  method="post">
+     <h1>New Listings</h1>
+    <label class="form-label" for="title">Title
+        <input type="text" class="form-control" placeholder="title" required name="title">
+        <div class="invalid-feedback">Enter Title</div>
+    </label>
+        
+    <label class="form-label" for="description">Description
+    <textarea type="text" class="form-control" placeholder="description" required name="description"></textarea>
+    <div class="invalid-feedback">Enter Description</div>
+    </label> 
+
+    <label class="form-label" for="image">Image
+    <input  class="form-control"  type="file" placeholder=" Choose Image" required name="image">
+    <div class="invalid-feedback">Choose Image</div>
+        </label>    
+
+    <label class="form-label " for="price">Price
+    <input  class="form-control"  type="text" placeholder="price" required name="price">
+    <div class="invalid-feedback">Enter Price</div>
+        </label> 
+
+    <label class="form-label" for="location">Location
+    <input  class="form-control"  type="text" placeholder="location" required name="location">
+    <div class="invalid-feedback">Enter Location</div>
+        </label>
+       
+        
+   <label for="country">Country
+    <input  class="form-control"  type="text" placeholder="country" required name="country">
+    <div class="invalid-feedback">Enter Country</div>
+    </label> 
+
+    
+    <label class="m-2"  for="category">Category
+        <select required name="category" class="form-select form-select-lg  " aria-label="Large select example">
+            <option value="adventure">Adventure</option>
+            <option value="trending">Trending</option>
+            <option value="mountain">Mountain</option>
+            <option value="peace">Peace</option>
+            <option value="river">River</option>
+          </select>
+        
+        </label> 
+         <br><br>
+        <button id="but" type="submit">ADD</button>
+    </form>
+
+
+
+    <%- include("./include/footer.ejs") %>
+
+    
+</body>
+<script src="/code.js"></script>
+</html>

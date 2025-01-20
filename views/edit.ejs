@@ -1,0 +1,56 @@
+<%- include("./include/headfile.ejs") %>
+
+
+<body>
+    <%- include("./include/navbar.ejs") %>
+
+ 
+    <form style="margin: 2vh;" action="/listings/<%= x.id %>/edit?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data" >  
+        
+    <h1 style="display: inline-block; margin-right: 20%;">Edit Listings</h1><img style="height: 30vh; width: 20vw;" src="<%= x.image%>" ><br>
+
+    <label class="form-label" for="title">Title
+        <input type="text" class="form-control" required  value="<%= x.title %>" name="title">
+    </label>
+        
+    <label class="form-label" for="description">Description
+    <textarea type="text" class="form-control"  name="description"><%= x.description %></textarea>
+    </label> 
+        
+    <label class="form-label" for="image">Image
+        <input  class="form-control"  type="file" value="<%=x.image%>" name="image">
+            </label>
+
+       <label class="form-label" for="price">Price
+        <input  class="form-control"  type="text" required value="<%= x.price %>"  name="price">
+        </label> 
+
+        <label class="form-label" for="location">Location
+        <input  class="form-control"  type="text" required value="<%= x.location %>" name="location">
+        </label>
+        
+       <label for="country">Country
+        <input  class="form-control"  type="text" required value="<%= x.country %>" name="country">
+        </label> 
+
+        <label class="m-2"  for="category">Category
+            <select required name="category" class="form-select form-select-lg  " aria-label="Large select example">
+                <option selected value="<%= x.category %>">Category</option>
+                <option value="adventure">Adventure</option>
+                <option value="trending">Trending</option>
+                <option value="mountain">Mountain</option>
+                <option value="peace">Peace</option>
+                <option value="river">River</option>
+              </select>
+
+            </label>
+         <br><br>
+        <button id="but" type="submit">ADD</button>
+    </form>
+
+    <%- include("./include/footer.ejs") %>
+
+    
+</body>
+<script src="/code.js"></script>
+</html>

@@ -1,0 +1,53 @@
+
+
+<nav  class="navbar navbar-expand-md bg-body-tertiary sticky-top  border-bottom">
+    <div class="container-fluid">
+      
+        <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" style="width: 90%;" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">All Listings</a>
+          <a class="nav-link" href="/listings/new">New Listing</a>
+           
+        </div>
+      
+      
+       <form id="bar" method="get" action="/listings/explore" class="d-flex col-3 ms-auto" role="search">
+          <input class="form-control " name="search" type="search" placeholder="Explore" aria-label="Search">
+          <button  class="btn btn-outline-success searchbut" id="filterbut" type="submit">Search</button>
+        </form>
+         
+        
+        
+
+
+        <div class="navbar-nav ms-auto">
+          <% if (currentuser) { %>
+           <a class="nav-link" href="/logout"><b>LogOut</b></a>
+          <% } %>
+          <%  if(!currentuser)  { %>
+          <a class="nav-link" href="/listings/login"> <b>LogIn</b></a>
+          <a class="nav-link active" aria-current="page" href="/listings/signup"><b>SignUp</b> </a>
+          <% } %>
+
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </nav>
+
+
+  <style>
+    @media (max-width:767px) {
+      #bar{
+         position: relative !important;
+        right: 20vw !important;
+         width: 60vw !important;
+      }
+    }
+  </style>
+

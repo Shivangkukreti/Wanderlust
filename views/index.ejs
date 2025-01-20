@@ -1,0 +1,65 @@
+<%- include("./include/headfile.ejs") %>
+<body>
+
+
+
+    <%- include("./include/navbar.ejs") %>
+      
+   <div style="height: 10vh;width: 100vw;display: flex;align-items: center;">
+    <a href="/listings/explore?search=trending">
+          <label class="filterhead"><div class="filterbox"><i class="fa-solid fa-fire filter"></i><b >Trending</b ></div></label>
+    </a>
+    <a href="/listings/explore?search=peace">
+           <label class="filterhead"><div class="filterbox"><i class="fa-solid fa-bed filter"></i><b >Peace</b> </div></label>
+    </a>
+    <a href="/listings/explore?search=mountain">
+        <label class="filterhead"><div class="filterbox"><i class="fa-solid fa-mountain filter"></i><b >Mountain</b></div></label>
+    </a>
+     <a href="/listings/explore?search=river">
+      <label class="filterhead"><div class="filterbox"><i class="fa-solid fa-person-swimming filter"></i><b >River</b> </div></label>
+     </a>
+      <a href="/listings/explore?search=adventure">
+        <label class="filterhead"><div class="filterbox"><i class="fa-solid fa-volcano filter"></i><b >Adventure</b> </div></label>
+      </a>
+     
+
+     <div  class="form-check-reverse tax form-switch ms-auto">
+      <label class="form-check-label" for="switch" >TAX
+      <input class="form-check-input " id="switch"   type="checkbox" role="switch" unchecked>
+      </label>
+    </div>
+
+   </div>
+     <hr>
+
+                     <%- include("./include/flash.ejs") %>
+
+
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+
+         
+          <% for( let ele of alllistings ) { %>
+          
+            <a style="text-decoration: none;" href="http://localhost:3000/listings/<%= ele.id %>">
+        <div class="card" >
+            <img src="<%= ele.image%>" alt="a"  class="card-img-top">
+
+            <div class="card-body" style="padding: 1vh;">
+              <p class="card-text">
+                <b><%= ele.title %></b><br>
+                &#8377;<span class="money"><%= ele.price.toLocaleString() %></span>
+              </p>
+
+            </div>
+          </div></a>
+    <% } %>
+
+    </div>
+
+    
+   
+
+    <%- include("./include/footer.ejs") %>
+</body>
+<script src="/code.js"></script>
+</html> 

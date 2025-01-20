@@ -1,0 +1,94 @@
+<%- include("./include/headfile.ejs") %> 
+<link rel="stylesheet" href="/star.css">
+<body>
+    <%- include("./include/navbar.ejs") %>
+   
+    <%- include("./include/flash.ejs") %>
+    
+    <div class="card offset-1" style=" width: 75vw;">
+      
+        <img src="<%= x.image %>" class="card-img-top" style="height: 30vw !important;"  alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= x.title %></h5>
+          <p class="card-text"><%= x.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Owned By:-- <b><%= y.username.toUpperCase() %></b></li>
+          <li class="list-group-item">Category:--<b><%= x.category %></b></li>
+          <li class="list-group-item">&#8377;<%= x.price.toLocaleString("en-IN") %></li>
+          <li class="list-group-item"><%= x.location %></li>
+          <li class="list-group-item"><%= x.country %></li>
+
+        </ul>
+        
+      </div>
+      <div id="butbox">
+         <div class="card-body">
+  
+          <% if (currentuser && currentuser.username===y.username) { %>
+<form style="display: inline;"  action="/listings/<%= x.id %>?_method=DELETE" method="post"><button id="but">DELETE</button></form>
+<button  id="but"><a style="text-decoration: none ;color: #ffffff;" href="http://localhost:3000/listings/<%= x.id %>/edit">EDIT</a></button>
+              
+          <% } %>    
+          
+      
+        </div>
+      </div>
+
+
+<!-- -----------reviews------------------------------------------------------------------------------------------------------------- -->
+      <hr>
+
+
+      <div class=" offset-1">
+        <h4>Leave A Review</h4>
+        <form novalidate class="needs-validation" action="/listings/<%= x.id %>/reviews" method="POST"  >
+          <label class="form-label m-2" for="rating">Rating
+            <fieldset  class="starability-slot ">
+              <input  type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="rating" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="rating" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="rating" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="rating" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="rating" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+
+          </label>
+          <label class="form-label m-2 " for="comment">Comment
+            <textarea  class="form-control" name="comment" required  cols="20" rows="10"></textarea>
+           
+          </label><br>
+          <button class="offset-5 mb-5" id="butsub" type="submit">Submit</button>
+        </form>
+      </div>
+      <hr>
+
+      <div class="col-10 offset-1 row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+      <% for( let ele of  x.reviews  ) { %>
+        <div class="card " style="border: 2px black solid !important; width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%=ele.author%></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"> <p class="starability-result" data-rating="3"><%= ele.value %>stars</p></h6>
+            <p class="card-text"><%= ele.comment %></p>
+            <form action="/listings/<%= x.id %>/reviews/<%= ele.id %>?_method=DELETE" method="post"><button id="butsub" type="submit">DELETE</button>
+            
+            </form>
+      
+          </div>
+        </div>
+      <% } %>
+      </div>
+     
+
+    <%- include("./include/footer.ejs") %>
+
+    
+</body>
+<script src="/code.js"></script>
+</html>
+
