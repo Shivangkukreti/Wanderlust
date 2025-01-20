@@ -27,7 +27,7 @@
   
           <% if (currentuser && currentuser.username===y.username) { %>
 <form style="display: inline;"  action="/listings/<%= x.id %>?_method=DELETE" method="post"><button id="but">DELETE</button></form>
-<button  id="but"><a style="text-decoration: none ;color: #ffffff;" href="http://localhost:3000/listings/<%= x.id %>/edit">EDIT</a></button>
+<button  id="but"><a style="text-decoration: none ;color: #ffffff;" href="/listings/<%= x.id %>/edit">EDIT</a></button>
               
           <% } %>    
           
