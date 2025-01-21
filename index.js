@@ -187,7 +187,7 @@ app.get("/listings/explore",async(req,res)=>{
         );
       })
       if (alllistings.length===0) {
-        req.flash("fail","No Results Found!!!")
+        req.flash("fail","No Results!!!")
         res.redirect("/listings")
       }
     res.render('index.ejs',{alllistings}) 
